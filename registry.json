@@ -3,16 +3,19 @@
     {
       "id": 3000,
       "name": "ruby_block",
+      "displayName": "Ruby Block",
       "material": "rock",
       "hardness": 5.0,
       "resistance": 10.0,
       "light": 0.0
     }
   ],
+
   "items": [
     {
       "id": 5000,
       "name": "ruby",
+      "displayName": "Ruby",
       "maxStack": 64
     }
   ]
