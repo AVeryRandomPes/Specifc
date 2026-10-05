@@ -1,9 +1,9 @@
-name: update texture manifest
+name: update asset manifest
 
 on:
   push:
     paths:
-      - "assets/minecraft/textures/**"
+      - "assets/minecraft/**"
       - ".github/workflows/generate-texture-manifest.yml"
 
 permissions:
@@ -23,7 +23,7 @@ jobs:
           import json
           from pathlib import Path
 
-          root = Path("assets/minecraft/textures")
+          root = Path("assets/minecraft")
           files = {}
 
           for file in root.rglob("*"):
@@ -36,7 +36,7 @@ jobs:
               json.dump({"files": files}, f, indent=2)
               f.write("\n")
 
-          print("textures:", len(files))
+          print("files:", len(files))
           PY
 
       - name: push it
@@ -51,5 +51,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git commit -m "update texture manifest"
+          git commit -m "update asset manifest"
           git push
