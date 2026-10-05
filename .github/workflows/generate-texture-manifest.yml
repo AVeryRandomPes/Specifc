@@ -1,72 +1,55 @@
-name: Generate Texture Manifest
+name: update texture manifest
 
 on:
   push:
     paths:
-      - 'assets/minecraft/textures/**'
-      - '.github/workflows/generate-texture-manifest.yml'
+      - "assets/minecraft/textures/**"
+      - ".github/workflows/generate-texture-manifest.yml"
 
 permissions:
   contents: write
 
 jobs:
-  manifest:
+  update:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Generate manifest
+      - name: make manifest
         run: |
-          python3 <<'PY'
+          python3 - <<'PY'
           import hashlib
           import json
-          import pathlib
+          from pathlib import Path
 
-          root = pathlib.Path("assets/minecraft/textures")
-
+          root = Path("assets/minecraft/textures")
           files = {}
 
-          if not root.exists():
-              raise SystemExit("Texture directory does not exist: " + str(root))
+          for file in root.rglob("*"):
+              if file.is_file():
+                  files[file.as_posix()] = hashlib.sha256(file.read_bytes()).hexdigest()[:16]
 
-          for path in sorted(root.rglob("*")):
-              if not path.is_file():
-                  continue
+          files = dict(sorted(files.items()))
 
-              data = path.read_bytes()
+          with open("manifest.json", "w", encoding="utf-8") as f:
+              json.dump({"files": files}, f, indent=2)
+              f.write("\n")
 
-              digest = hashlib.sha256(data).hexdigest()[:16]
-
-              files[path.as_posix()] = digest
-
-          output = {
-              "files": files
-          }
-
-          pathlib.Path("manifest.json").write_text(
-              json.dumps(
-                  output,
-                  indent=2,
-                  sort_keys=True
-              ) + "\n",
-              encoding="utf-8"
-          )
-
-          print("Generated manifest for", len(files), "files")
+          print("textures:", len(files))
           PY
 
-      - name: Commit manifest
+      - name: push it
         run: |
-          if [ -z "$(git status --porcelain -- manifest.json)" ]; then
-            echo "Manifest already current"
+          git add manifest.json
+
+          if git diff --cached --quiet; then
+            echo "nothing changed"
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add manifest.json
-          git commit -m "Update texture manifest"
+          git commit -m "update texture manifest"
           git push
