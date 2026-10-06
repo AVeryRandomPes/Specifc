@@ -10,14 +10,14 @@
       "light": 0.0,
 
       "gui": {
-        "id": "ruby_control",
-        "file": "gui/UiRuby.json"
+        "id": "ruby_block_menu",
+        "file": "gui/UiRubyBlock.json"
       },
 
       "behavior": {
         "onUse": {
           "action": "openGui",
-          "gui": "ruby_control"
+          "gui": "ruby_block_menu"
         }
       }
     }
@@ -28,7 +28,19 @@
       "id": 5000,
       "name": "ruby",
       "displayName": "Ruby",
-      "maxStack": 64
+      "maxStack": 64,
+
+      "gui": {
+        "id": "ruby_item_menu",
+        "file": "gui/UiRubyItem.json"
+      },
+
+      "behavior": {
+        "onUse": {
+          "action": "openGui",
+          "gui": "ruby_item_menu"
+        }
+      }
     }
   ],
 
@@ -56,12 +68,5 @@
     }
   ],
 
-  "furnaceRecipes": [
-    {
-      "input": "minecraft:diamond_block",
-      "output": "minecraft:ruby",
-      "count": 1,
-      "experience": 0.0
-    }
-  ]
+  "furnaceRecipes": []
 }
