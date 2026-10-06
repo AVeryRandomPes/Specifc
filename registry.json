@@ -1,55 +1,21 @@
 {
-  "blocks": [
-    {
-      "id": 3000,
-      "name": "ruby_block",
-      "displayName": "Ruby Block",
-      "material": "rock",
-      "hardness": 5.0,
-      "resistance": 10.0,
-      "light": 0.0
-    }
-  ],
+  "id": 3000,
+  "name": "ruby_block",
+  "displayName": "Ruby Block",
+  "material": "rock",
+  "hardness": 5.0,
+  "resistance": 10.0,
+  "light": 0.0,
 
-  "items": [
-    {
-      "id": 5000,
-      "name": "ruby",
-      "displayName": "Ruby",
-      "maxStack": 64
-    }
-  ],
+  "gui": {
+    "id": "ruby_control",
+    "file": "gui/UiRuby.json"
+  },
 
-  "recipes": [
-    {
-      "type": "shaped",
-      "result": "ruby_block",
-      "count": 1,
-      "pattern": [
-        "RRR",
-        "RRR",
-        "RRR"
-      ],
-      "keys": {
-        "R": "ruby"
-      }
-    },
-    {
-      "type": "shapeless",
-      "result": "ruby",
-      "count": 9,
-      "ingredients": [
-        "ruby_block"
-      ]
+  "behavior": {
+    "onUse": {
+      "action": "openGui",
+      "gui": "ruby_control"
     }
-  ],
-
-  "furnaceRecipes": [
-    {
-      "input": "minecraft:diamond_block",
-      "output": "minecraft:end_rod",
-      "count": 1,
-      "experience": 0.0
-    }
-  ]
+  }
 }
