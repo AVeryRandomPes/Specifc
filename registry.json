@@ -10,7 +10,6 @@
       "light": 0.0
     }
   ],
-
   "items": [
     {
       "id": 5000,
@@ -19,7 +18,6 @@
       "maxStack": 64
     }
   ],
-
   "recipes": [
     {
       "type": "shaped",
@@ -39,17 +37,17 @@
       "result": "ruby",
       "count": 9,
       "ingredients": [
-        "ruby_block"
+        "ruby block"
       ]
     }
   ],
-
-"furnaceRecipes": [
-  {
-    "input": "minecraft:diamond_block",
-    "output": "minecraft:dirt",
-    "count": 1,
-    "experience": 0.0
-  }
-]
+  "furnace Recipes": [
+    {
+      "input": "minecraft:diamond block",
+      "output": "minecraft:end_rod",
+      "count": 1,
+      "displayName": "Gabe itch",
+      "experience": 0.0
+    }
+  ]
 }
