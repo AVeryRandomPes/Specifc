@@ -19,4 +19,35 @@
       "maxStack": 64
     }
   ]
+  "recipes": [
+  {
+    "type": "shaped",
+    "result": "ruby_block",
+    "count": 1,
+    "pattern": [
+      "RRR",
+      "RRR",
+      "RRR"
+    ],
+    "keys": {
+      "R": "ruby"
+    }
+  },
+  {
+    "type": "shapeless",
+    "result": "ruby",
+    "count": 9,
+    "ingredients": [
+      "ruby_block"
+    ]
+  }
+],
+"furnaceRecipes": [
+  {
+    "input": "ruby_ore",
+    "output": "ruby",
+    "count": 1,
+    "experience": 1.0
+  }
+]
 }
