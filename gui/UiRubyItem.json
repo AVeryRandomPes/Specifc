@@ -1,0 +1,90 @@
+{
+  "id": "ruby_item_menu",
+  "type": "chest",
+  "title": "Ruby Item GUI",
+  "rows": 3,
+
+  "border": {
+    "item": "minecraft:stained_glass_pane",
+    "meta": 11,
+    "name": " "
+  },
+
+  "slots": {
+    "13": {
+      "item": "minecraft:ruby",
+      "count": 1,
+      "name": "§dRuby Item",
+      "lore": [
+        "§7Opened by right-clicking",
+        "§7the Ruby item.",
+        "",
+        "§eLeft-click to test."
+      ],
+      "glow": true,
+
+      "actions": {
+        "leftClick": [
+          {
+            "action": "message",
+            "text": "§dITEM GUI click works!"
+          },
+          {
+            "action": "playSound",
+            "sound": "random.orb",
+            "volume": 1.0,
+            "pitch": 1.0
+          }
+        ],
+
+        "rightClick": [
+          {
+            "action": "replaceSlot",
+            "slot": 13,
+            "definition": {
+              "item": "minecraft:diamond",
+              "count": 64,
+              "name": "§bItem GUI Changed",
+              "lore": [
+                "§7replaceSlot works here too."
+              ]
+            }
+          }
+        ]
+      }
+    },
+
+    "21": {
+      "item": "minecraft:redstone",
+      "name": "§eReload GUI",
+
+      "actions": {
+        "click": [
+          {
+            "action": "refresh"
+          }
+        ]
+      }
+    },
+
+    "22": {
+      "item": "minecraft:barrier",
+      "name": "§cClose",
+
+      "actions": {
+        "click": [
+          {
+            "action": "close"
+          }
+        ]
+      }
+    }
+  },
+
+  "onOpen": [
+    {
+      "action": "message",
+      "text": "§dRuby ITEM GUI opened."
+    }
+  ]
+}
