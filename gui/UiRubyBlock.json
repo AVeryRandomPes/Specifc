@@ -1,0 +1,78 @@
+{
+  "id": "ruby_block_menu",
+  "type": "chest",
+  "title": "Ruby Block GUI",
+  "rows": 3,
+
+  "border": {
+    "item": "minecraft:stained_glass_pane",
+    "meta": 14,
+    "name": " "
+  },
+
+  "slots": {
+    "13": {
+      "item": "minecraft:ruby_block",
+      "count": 1,
+      "name": "§cRuby Block",
+      "lore": [
+        "§7Opened by right-clicking",
+        "§7the placed Ruby Block.",
+        "",
+        "§eLeft-click to test."
+      ],
+      "glow": true,
+
+      "actions": {
+        "leftClick": [
+          {
+            "action": "message",
+            "text": "§aBLOCK GUI click works!"
+          },
+          {
+            "action": "playSound",
+            "sound": "random.levelup",
+            "volume": 1.0,
+            "pitch": 1.0
+          }
+        ],
+
+        "rightClick": [
+          {
+            "action": "replaceSlot",
+            "slot": 13,
+            "definition": {
+              "item": "minecraft:emerald_block",
+              "count": 1,
+              "name": "§aBlock GUI Changed",
+              "lore": [
+                "§7replaceSlot works."
+              ],
+              "glow": true
+            }
+          }
+        ]
+      }
+    },
+
+    "22": {
+      "item": "minecraft:barrier",
+      "name": "§cClose",
+
+      "actions": {
+        "click": [
+          {
+            "action": "close"
+          }
+        ]
+      }
+    }
+  },
+
+  "onOpen": [
+    {
+      "action": "message",
+      "text": "§eRuby BLOCK GUI opened."
+    }
+  ]
+}
