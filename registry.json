@@ -44,5 +44,12 @@
     }
   ],
 
-  "furnaceRecipes": []
+"furnaceRecipes": [
+  {
+    "input": "minecraft:diamond_block",
+    "output": "minecraft:dirt",
+    "count": 1,
+    "experience": 0.0
+  }
+]
 }
