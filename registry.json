@@ -68,5 +68,20 @@
     }
   ],
 
-  "furnaceRecipes": []
+  "furnaceRecipes": [],
+
+  "worldgen": {
+    "ores": [
+      {
+        "block": "ruby_block",
+        "targets": [
+          "minecraft:stone"
+        ],
+        "veinSize": 3,
+        "veinsPerChunk": 2,
+        "minY": 4,
+        "maxY": 24
+      }
+    ]
+  }
 }
