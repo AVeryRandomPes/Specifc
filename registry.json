@@ -1,3 +1,4 @@
+
 {
   "blocks": [
     {
@@ -8,12 +9,10 @@
       "hardness": 5.0,
       "resistance": 10.0,
       "light": 0.0,
-
       "gui": {
         "id": "ruby_block_menu",
         "file": "gui/UiRubyBlock.json"
       },
-
       "behavior": {
         "onUse": {
           "action": "openGui",
@@ -22,19 +21,16 @@
       }
     }
   ],
-
   "items": [
     {
       "id": 5000,
       "name": "ruby",
       "displayName": "Ruby",
       "maxStack": 64,
-
       "gui": {
         "id": "ruby_item_menu",
         "file": "gui/UiRubyItem.json"
       },
-
       "behavior": {
         "onUse": {
           "action": "openGui",
@@ -43,7 +39,6 @@
       }
     }
   ],
-
   "recipes": [
     {
       "type": "shaped",
@@ -67,9 +62,7 @@
       ]
     }
   ],
-
   "furnaceRecipes": [],
-
   "worldgen": {
     "ores": [
       {
@@ -81,6 +74,59 @@
         "veinsPerChunk": 2,
         "minY": 4,
         "maxY": 24
+      }
+    ],
+    "biomes": [
+      {
+        "id": 210,
+        "name": "Ruby Highlands",
+        "climate": "warm",
+        "weight": 6,
+        "temperature": 0.9,
+        "rainfall": 0.0,
+        "rain": false,
+        "snow": false,
+        "treeType": "none",
+        "terrain": {
+          "baseHeight": 0.55,
+          "heightVariation": 0.65,
+          "topBlock": "ruby_block",
+          "fillerBlock": "ruby_block"
+        },
+        "decorations": {
+          "treesPerChunk": 0,
+          "grassPerChunk": 0,
+          "flowersPerChunk": 0,
+          "deadBushPerChunk": 0,
+          "mushroomsPerChunk": 0,
+          "reedsPerChunk": 0,
+          "cactiPerChunk": 0,
+          "bigMushroomsPerChunk": 0
+        },
+        "spawnRules": {
+          "mode": "replace",
+          "monsters": [
+            {
+              "mob": "zombie",
+              "weight": 60,
+              "min": 1,
+              "max": 4
+            },
+            {
+              "mob": "skeleton",
+              "weight": 80,
+              "min": 1,
+              "max": 4
+            },
+            {
+              "mob": "spider",
+              "weight": 30,
+              "min": 1,
+              "max": 3
+            }
+          ],
+          "creatures": []
+        }
       }
     ]
   }
