@@ -76,6 +76,30 @@
         "maxY": 24
       }
     ],
+    "trees": [
+      {
+        "name": "ruby_tree",
+        "trunkBlock": "ruby_block",
+        "leavesBlock": "minecraft:redstone_block",
+        "height": {
+          "min": 5,
+          "max": 10
+        },
+        "trunkRadius": 0,
+        "canopy": {
+          "shape": "round",
+          "radius": 3,
+          "height": 5
+        },
+        "branches": {
+          "count": 3,
+          "length": 3
+        },
+        "spawnOn": [
+          "ruby_block"
+        ]
+      }
+    ],
     "biomes": [
       {
         "id": 210,
@@ -86,7 +110,7 @@
         "rainfall": 0.0,
         "rain": false,
         "snow": false,
-        "treeType": "none",
+        "treeType": "ruby_tree",
         "terrain": {
           "baseHeight": 0.55,
           "heightVariation": 0.65,
@@ -94,7 +118,7 @@
           "fillerBlock": "ruby_block"
         },
         "decorations": {
-          "treesPerChunk": 0,
+          "treesPerChunk": 5,
           "grassPerChunk": 0,
           "flowersPerChunk": 0,
           "deadBushPerChunk": 0,
